@@ -20,12 +20,15 @@
             
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <ViewCell>
-                        
-                        <FlexLayout>
+                    <ViewCell>                        
+                        <FlexLayout JustifyContent="SpaceBetween" AlignItems="Center" Padding="25,0">
                             <Label Text="{Binding TodoText}" FontSize="Large"/>
+                            <!--Binding path is location of remove command (need to specify path because binf is already done in labe
+                            source is where the binfing is )-->
                             <ImageButton 
                                 Source="trash_can.png"
+                            Command="{Binding Path=BindingContext.RemoveTodoCommand, Source={x:Reference TodoList}}"
+                                CommandParameter ="{Binding .}"
                                 />
                         </FlexLayout> 
                         

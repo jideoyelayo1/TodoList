@@ -18,6 +18,7 @@ namespace TodoList
             TodoItems.Add(new TodoItem("clean plate", true));
             TodoItems.Add(new TodoItem("put plate away", false));
         }
+        //Add
         public ICommand AddTodoCommand => new Command(AddTodoItem);
         public string NewTodoInputVal { get; set; }
         void AddTodoItem()
@@ -27,6 +28,14 @@ namespace TodoList
             TodoItems.Add(new TodoItem(NewTodoInputVal.Trim(), false));
             NewTodoInputVal = "";
 
+        }
+        //Remove
+        public ICommand RemoveTodoCommand => new Command(RemoveTodoItem);
+        void RemoveTodoItem(object o)
+        {
+            TodoItem  todoItemBeingRemoved  = o as TodoItem;
+            //Console.Write("Removing");
+            TodoItems.Remove(todoItemBeingRemoved);
         }
 
     }
