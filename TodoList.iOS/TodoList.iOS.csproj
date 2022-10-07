@@ -133,4 +133,7 @@
       <Name>TodoList</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\trash_can.png" />
+  </ItemGroup>
 </Project>

@@ -21,7 +21,14 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <Label Text="{Binding TodoText}" FontSize="Large"/>
+                        
+                        <FlexLayout>
+                            <Label Text="{Binding TodoText}" FontSize="Large"/>
+                            <ImageButton 
+                                Source="trash_can.png"
+                                />
+                        </FlexLayout> 
+                        
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
