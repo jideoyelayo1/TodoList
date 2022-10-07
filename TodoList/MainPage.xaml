@@ -11,8 +11,9 @@
     <StackLayout>
         <Entry 
             x:Name="InputText"
-            Text="" 
+            Text="{Binding NewTodoInputVal}" 
             Placeholder="Enter a todo"
+            ReturnCommand="{Binding AddTodoCommand}"
             />
         
         <ListView x:Name="TodoList" ItemsSource="{Binding TodoItems}">

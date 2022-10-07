@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Collections.ObjectModel;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace TodoList
 {
@@ -16,5 +18,16 @@ namespace TodoList
             TodoItems.Add(new TodoItem("clean plate", true));
             TodoItems.Add(new TodoItem("put plate away", false));
         }
+        public ICommand AddTodoCommand => new Command(AddTodoItem);
+        public string NewTodoInputVal { get; set; }
+        void AddTodoItem()
+        {
+            //Console.Write("Enter Pressed");
+            if (NewTodoInputVal.Replace(" ","") == "") return;
+            TodoItems.Add(new TodoItem(NewTodoInputVal.Trim(), false));
+            NewTodoInputVal = "";
+
+        }
+
     }
 }
