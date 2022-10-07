@@ -10,11 +10,14 @@
     </ContentPage.BindingContext>    
 
     <StackLayout>
+        
+        <Label Text="Todo List" FontSize="Header" HorizontalTextAlignment="Center"/>
         <Entry 
             x:Name="InputText"
             Text="{Binding NewTodoInputVal}" 
             Placeholder="Enter something to do"
             ReturnCommand="{Binding AddTodoCommand}"
+            Completed="clearText"
             />
         
         <ListView x:Name="TodoList" ItemsSource="{Binding TodoItems}">

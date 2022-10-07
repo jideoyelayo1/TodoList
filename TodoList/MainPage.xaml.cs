@@ -15,8 +15,9 @@ namespace TodoList
             InitializeComponent();
         }
        
-        public  void clearText(object o, EventArgs args)
+        public async void clearText(object o, EventArgs args)
         {
+            await Task.Delay(200);
             InputText.Text = "";
         }
     }

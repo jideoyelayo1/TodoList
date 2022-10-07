@@ -27,7 +27,7 @@ namespace TodoList
             //Console.Write("Enter Pressed");
             if (NewTodoInputVal.Replace(" ","") == "") return;
             TodoItems.Add(new TodoItem(NewTodoInputVal.Trim(), false));
-            
+            NewTodoInputVal = "";
 
         }
         //Remove
