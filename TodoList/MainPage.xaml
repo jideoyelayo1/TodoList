@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:TodoList"
+             xmlns:input="clr-namespace:Plugin.InputKit.Shared.Controls;assembly=Plugin.InputKit"
              x:Class="TodoList.MainPage">
     
     <ContentPage.BindingContext>
@@ -12,30 +13,28 @@
         <Entry 
             x:Name="InputText"
             Text="{Binding NewTodoInputVal}" 
-            Placeholder="Enter a todo"
+            Placeholder="Enter something to do"
             ReturnCommand="{Binding AddTodoCommand}"
             />
         
         <ListView x:Name="TodoList" ItemsSource="{Binding TodoItems}">
-            
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <ViewCell>                        
-                        <FlexLayout JustifyContent="SpaceBetween" AlignItems="Center" Padding="25,0">
+                    <ViewCell>
+                        <FlexLayout JustifyContent="SpaceBetween" AlignItems="Start" Padding="25,0">
+                            <input:CheckBox IsChecked="{Binding Completed}"/>
                             <Label Text="{Binding TodoText}" FontSize="Large"/>
-                            <!--Binding path is location of remove command (need to specify path because binf is already done in labe
+                            <!--Binding path is location of remove command (need to specify path because binding is already done in labe
                             source is where the binfing is )-->
                             <ImageButton 
                                 Source="trash_can.png"
                             Command="{Binding Path=BindingContext.RemoveTodoCommand, Source={x:Reference TodoList}}"
                                 CommandParameter ="{Binding .}"
                                 />
-                        </FlexLayout> 
-                        
+                        </FlexLayout>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
-            
         </ListView>
 
     </StackLayout>

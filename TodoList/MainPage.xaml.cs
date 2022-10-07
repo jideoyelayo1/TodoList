@@ -15,6 +15,9 @@ namespace TodoList
             InitializeComponent();
         }
        
-
+        public  void clearText(object o, EventArgs args)
+        {
+            InputText.Text = "";
+        }
     }
 }

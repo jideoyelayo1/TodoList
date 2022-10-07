@@ -21,12 +21,13 @@ namespace TodoList
         //Add
         public ICommand AddTodoCommand => new Command(AddTodoItem);
         public string NewTodoInputVal { get; set; }
+        
         void AddTodoItem()
         {
             //Console.Write("Enter Pressed");
             if (NewTodoInputVal.Replace(" ","") == "") return;
             TodoItems.Add(new TodoItem(NewTodoInputVal.Trim(), false));
-            NewTodoInputVal = "";
+            
 
         }
         //Remove
